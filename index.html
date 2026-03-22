@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-brand-title>Home</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" data-brand>Brand</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="events.html">Events</a>
+          <div class="nav-dropdown" data-nav-dropdown="support-groups">
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="nav-menu-support-groups"
+              id="nav-menu-support-groups-button"
+            >
+              Support Groups
+            </button>
+            <ul
+              id="nav-menu-support-groups"
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-labelledby="nav-menu-support-groups-button"
+              hidden
+              data-support-groups-nav
+            ></ul>
+          </div>
+          <a href="pride.html">Pride</a>
+        </nav>
+        <a class="contact-link button" href="#" data-contact-link>Contact</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1 class="hero-title" data-hero-title></h1>
+        <p class="hero-subtitle" data-home-hero-subtitle></p>
+        <div class="hero-actions">
+          <a class="button" href="#" data-home-events-cta></a>
+        </div>
+      </section>
+
+      <section class="card-grid" aria-label="Highlights" data-home-highlights></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="muted">
+          &copy; <span data-year></span> <span data-brand>Brand</span>.
+        </p>
+        <p class="placeholder-note" id="contact-placeholder-note" hidden>
+          Update the contact email in <code>src/siteConfig.js</code>.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/site.js"></script>
+  </body>
+</html>
+

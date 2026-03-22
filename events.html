@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-brand-title>Events</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" data-brand>Brand</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="events.html">Events</a>
+          <div class="nav-dropdown" data-nav-dropdown="support-groups">
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="nav-menu-support-groups"
+              id="nav-menu-support-groups-button"
+            >
+              Support Groups
+            </button>
+            <ul
+              id="nav-menu-support-groups"
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-labelledby="nav-menu-support-groups-button"
+              hidden
+              data-support-groups-nav
+            ></ul>
+          </div>
+          <a href="pride.html">Pride</a>
+        </nav>
+        <a class="contact-link button" href="#" data-contact-link>Contact</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-intro">
+        <h1>Events</h1>
+        <p class="muted">
+          Keep this page updated with your upcoming activities, meetings, and public events.
+        </p>
+      </section>
+
+      <section class="card-grid" aria-label="Upcoming events">
+        <article class="card">
+          <h2>Brunch Club</h2>
+          <p class="muted">Every 2nd Sunday 12pm-2pm</p>
+          <p>
+            <a
+              class="address-link"
+              href="https://maps.google.com/?q=The+Bishop+and+Belcher,+175+Bloor+St+E,+Toronto,+ON"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="address-icon" aria-hidden="true">📍</span>
+              The Bishop &amp; Belcher
+            </a>
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>TBN @ Pride </h2>
+          <p class="muted">May 03, 2026 - 10:00 AM</p>
+          <p>Placeholder description for this event. Add registration information.</p>
+        </article>
+
+        <article class="card">
+          <h2>Social Mixers</h2>
+          <p class="muted">May 22, 2026 - 9:00 AM</p>
+          <p>Placeholder description for this event. Add meeting point and contact.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="muted">
+          &copy; <span data-year></span> <span data-brand>Brand</span>.
+        </p>
+        <p class="placeholder-note" id="contact-placeholder-note" hidden>
+          Update the contact email in <code>src/siteConfig.js</code>.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/site.js"></script>
+  </body>
+</html>
+

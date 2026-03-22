@@ -1,0 +1,5 @@
+# Python dependencies for this project.
+#
+# This file is intentionally empty for now. Add packages you need later, e.g.:
+#   flask==3.0.0
+

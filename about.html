@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-brand-title>About</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" data-brand>Brand</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="events.html">Events</a>
+          <div class="nav-dropdown" data-nav-dropdown="support-groups">
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="nav-menu-support-groups"
+              id="nav-menu-support-groups-button"
+            >
+              Support Groups
+            </button>
+            <ul
+              id="nav-menu-support-groups"
+              class="nav-dropdown-menu"
+              role="menu"
+              aria-labelledby="nav-menu-support-groups-button"
+              hidden
+              data-support-groups-nav
+            ></ul>
+          </div>
+          <a href="pride.html">Pride</a>
+        </nav>
+        <a class="contact-link button" href="#" data-contact-link>Contact</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-intro">
+        <h1 data-page-title>About</h1>
+        <p class="muted">
+          Toronto Bi+ Network (TBN) is a welcoming community for bisexual, pansexual,
+          omnisexual, Two-Spirit, fluid, unlabeled, and other non-monosexual (bi+/mspec)
+          people, as well as anyone questioning their sexuality.
+        </p>
+        <p class="muted">
+          We offer peer support, social connection, information, and resources. Our spaces
+          are non-judgmental and supportive, so people can share feelings, experiences, and
+          concerns openly. We celebrate many paths of identity development and honour the
+          diversity of people's lived experiences. We also do outreach, advocacy, and
+          education on bi+ and broader queer issues.
+        </p>
+        <p class="muted">
+          TBN also serves as an umbrella organization for two gender-centered groups:
+          Bi+ Women of Toronto (BiWoT) and Bi+ Men of Toronto (BiMoT).
+        </p>
+      </section>
+
+      <section class="two-col" aria-label="Gender-centered support groups">
+        <article class="card">
+          <h2>Bi+ Women of Toronto (BiWoT)</h2>
+          <p class="muted">
+            Bi+ Women of Toronto (BiWoT) is a community where bi+ women and women questioning
+            their sexuality can share perspectives and experiences. We welcome bi+ and
+            questioning cis and trans women, as well as non-binary people who are comfortable
+            in a space centered on women's experiences.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Bi+ Men of Toronto (BiMoT)</h2>
+          <p class="muted">
+            Bi+ Men of Toronto (BiMoT) is a community where bi+ men and men questioning their
+            sexuality can share perspectives and experiences. We welcome bi+ and questioning
+            cis and trans men, as well as non-binary people who are comfortable in a space
+            centered on men's experiences.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="muted">
+          &copy; <span data-year></span> <span data-brand>Brand</span>.
+        </p>
+        <p class="placeholder-note" id="contact-placeholder-note" hidden>
+          Update the contact email in <code>src/siteConfig.js</code>.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/site.js"></script>
+  </body>
+</html>
+

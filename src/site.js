@@ -1,4 +1,9 @@
 import { siteConfig } from './siteConfig.js';
+async function loadTemplateText(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to load template: ${url}`);
+  return res.text();
+}
 
 function buildMailto({ email, subject, body }) {
   const cleanEmail = String(email || '').trim();
@@ -304,7 +309,27 @@ function initContactLink() {
   if (note) note.hidden = Boolean(href) && !String(email || '').includes('example.com');
 }
 
-function init() {
+async function init() {
+  // Shared layout injection: mount once into placeholder nodes.
+  const headerUrl = new URL('./layout/header.html', import.meta.url);
+  const footerUrl = new URL('./layout/footer.html', import.meta.url);
+
+  let headerHtml = '';
+  let footerHtml = '';
+  try {
+    [headerHtml, footerHtml] = await Promise.all([loadTemplateText(headerUrl), loadTemplateText(footerUrl)]);
+  } catch (e) {
+    // Fail safe: keep placeholders empty so the rest of JS still runs.
+    console.error(e);
+  }
+
+  document
+    .querySelectorAll('[data-layout="header"]')
+    .forEach((el) => (el.innerHTML = headerHtml));
+  document
+    .querySelectorAll('[data-layout="footer"]')
+    .forEach((el) => (el.innerHTML = footerHtml));
+
   initSupportGroupsNav();
   initSupportGroupPageFromConfig();
   initHomeFromConfig();

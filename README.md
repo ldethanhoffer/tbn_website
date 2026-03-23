@@ -48,4 +48,5 @@ Most editable copy and links live in **`src/siteConfig.js`**:
 
 - Pages: `index.html`, `about.html`, `people.html`, `events.html`, `support-groups-general.html`, `support-groups-womens.html`, `support-groups-mens.html`, `pride.html`
 - Shared styles: `src/styles.css`
+- Static files copied as-is to the site root: `public/` → use `npm run dev` / `npm run build` so paths like `assets/...` resolve correctly
 

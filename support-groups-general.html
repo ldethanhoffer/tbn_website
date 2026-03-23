@@ -7,39 +7,7 @@
     <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body data-support-group="general">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="index.html" data-brand>Brand</a>
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="people.html">People</a>
-          <a href="events.html">Events</a>
-          <div class="nav-dropdown" data-nav-dropdown="support-groups">
-            <button
-              type="button"
-              class="nav-dropdown-toggle"
-              aria-expanded="false"
-              aria-haspopup="true"
-              aria-controls="nav-menu-support-groups"
-              id="nav-menu-support-groups-button"
-            >
-              Support Groups
-            </button>
-            <ul
-              id="nav-menu-support-groups"
-              class="nav-dropdown-menu"
-              role="menu"
-              aria-labelledby="nav-menu-support-groups-button"
-              hidden
-              data-support-groups-nav
-            ></ul>
-          </div>
-          <a href="pride.html">Pride</a>
-        </nav>
-        <a class="contact-link button" href="#" data-contact-link>Contact</a>
-      </div>
-    </header>
+    <div data-layout="header"></div>
 
     <main class="container">
       <div class="support-groups-page-with-banner">
@@ -96,16 +64,7 @@
       </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="muted">
-          &copy; <span data-year></span> <span data-brand>Brand</span>.
-        </p>
-        <p class="placeholder-note" id="contact-placeholder-note" hidden>
-          Update the contact email in <code>src/siteConfig.js</code>.
-        </p>
-      </div>
-    </footer>
+    <div data-layout="footer"></div>
 
     <script type="module" src="./src/site.js"></script>
   </body>

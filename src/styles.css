@@ -348,6 +348,17 @@ main h1 {
     height: auto;
     min-height: 0;
   }
+
+  body[data-support-group] .support-group-detail-card-wrap {
+    right: 1rem;
+    bottom: 1rem;
+    width: min(17.5rem, calc(100vw - 2rem));
+    margin-top: 0;
+  }
+
+  body[data-support-group] main.container {
+    padding-bottom: 13rem;
+  }
 }
 
 .support-group-hover-preview {
@@ -389,6 +400,235 @@ main h1 {
 .card-grid--single {
   grid-template-columns: minmax(0, 28rem);
   justify-content: start;
+}
+
+/* Events: date-badge “calendar” tiles */
+.event-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+.event-tile {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.event-date-badge {
+  flex: 0 0 auto;
+  width: 64px;
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.55rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.05;
+}
+
+.event-date-day {
+  font-size: 2rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.event-date-month {
+  font-size: 0.86rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  margin-top: -0.1rem;
+}
+
+.event-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.event-content h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.event-meta {
+  margin: 0.05rem 0 0.35rem;
+  font-size: 0.92rem;
+}
+
+.event-content p {
+  margin: 0.35rem 0 0;
+}
+
+.event-content p.event-meta {
+  margin: 0.05rem 0 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .event-calendar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .event-calendar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-date-badge {
+    width: 58px;
+  }
+
+  .event-date-day {
+    font-size: 1.8rem;
+  }
+}
+
+/* Events: month calendar (one tile per day) */
+.events-month {
+  padding-bottom: 3rem;
+}
+
+.events-month-header {
+  padding: 1rem 0 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.events-month-title {
+  margin: 0 0 0.35rem;
+  font-weight: 550;
+  color: var(--text);
+}
+
+.events-calendar-grid {
+  display: flex;
+  flex-direction: column; /* one tile below another */
+  flex-wrap: nowrap;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.calendar-day-spacer {
+  height: 100px;
+  border: none;
+}
+
+.calendar-day-tile {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: row;
+  padding: 0.65rem 0.75rem 0.75rem;
+  gap: 1rem;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 720px;
+  flex: 0 0 auto;
+}
+
+.calendar-day-badge {
+  flex: 0 0 86px;
+  width: 86px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 0.35rem 0.25rem;
+}
+
+.calendar-day-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.calendar-day-month {
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-top: 0.05rem;
+  letter-spacing: 0.08em;
+}
+
+.calendar-day-body {
+  padding-top: 0;
+  padding-left: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.calendar-day-body h3.calendar-day-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  font-weight: 550;
+}
+
+.calendar-day-meta,
+.calendar-day-desc {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  margin: 0.15rem 0 0;
+}
+
+.calendar-day-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .events-calendar-grid {
+    gap: 0.6rem;
+  }
+
+  .calendar-day-tile {
+    min-height: 92px;
+    max-width: 620px;
+  }
+
+  .calendar-day-badge {
+    flex-basis: 80px;
+    width: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .events-calendar-grid {
+    gap: 0.5rem;
+  }
+
+  .calendar-day-tile {
+    min-height: 80px;
+    padding: 0.55rem 0.55rem 0.65rem;
+    max-width: 100%;
+  }
+
+  .calendar-day-badge {
+    flex-basis: 74px;
+    width: 74px;
+  }
+
+  .calendar-day-number {
+    font-size: 1.35rem;
+  }
 }
 
 /* Support group pages: detail card aligned with bottom of other columns (desktop) */
@@ -437,6 +677,33 @@ main h1 {
 
 .support-group-detail-card-grid .address-link {
   font-size: inherit;
+}
+
+/* Support group pages: fixed detail card (stays visible while scrolling) */
+body[data-support-group] .support-groups-what-to-expect-column:has(.support-group-detail-card-wrap) {
+  display: block;
+  min-height: 0;
+  height: auto;
+}
+
+body[data-support-group] .support-group-detail-card-wrap {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: min(18.5rem, calc(100vw - 2.5rem));
+  max-width: calc(100vw - 2.5rem);
+  margin-top: 0;
+  z-index: 15;
+}
+
+body[data-support-group] .support-group-detail-card-grid .card {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+}
+
+body[data-support-group] main.container {
+  padding-bottom: 11rem;
 }
 
 .card {

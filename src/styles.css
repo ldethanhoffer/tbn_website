@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;600&display=swap');
 
 :root {
-  --bg: #ffffff;
+  --bg: #eeeeee;
   --surface: #f6f7f9;
   --text: #2a2a36;
   --muted: #5f5f72;
@@ -41,9 +41,72 @@ a {
   position: sticky;
   top: 0;
   z-index: 5;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.92);
+  background: #6594b1;
   border-bottom: 1px solid var(--border);
+}
+
+.site-header .nav a.active {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.site-header .nav-dropdown-toggle[aria-expanded='true'],
+.site-header .nav-dropdown-toggle.active {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+/* Outline-style CTA: no fill, so it reads clearly apart from filled nav “chips” */
+.site-header a[data-contact-link].button {
+  background: rgba(15, 40, 58, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: none;
+}
+
+.site-header a[data-contact-link].button:hover {
+  background: rgba(15, 40, 58, 0.55);
+  border-color: rgba(255, 255, 255, 0.95);
+  color: #fff;
+}
+
+.site-header .brand {
+  color: #fff;
+}
+
+.site-header .nav > a {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.site-header .nav > a:hover,
+.site-header .nav > a.active {
+  color: #fff;
+}
+
+.site-header .nav-dropdown-menu a {
+  color: var(--muted);
+}
+
+.site-header .nav-dropdown-menu a:hover {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.site-header .nav-dropdown-menu a.active {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.site-header .nav-dropdown-toggle {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.site-header .nav-dropdown-toggle:hover,
+.site-header .nav-dropdown-toggle[aria-expanded='true'],
+.site-header .nav-dropdown-toggle.active {
+  color: #fff;
 }
 
 .header-inner {
@@ -58,6 +121,12 @@ a {
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--text);
+}
+
+.brand-logo {
+  display: block;
+  height: auto;
+  width: 46px;
 }
 
 .nav {
@@ -215,6 +284,85 @@ a {
 
 .hero-actions {
   margin-top: 1.1rem;
+}
+
+/* Home: newsletter signup banner */
+.newsletter-banner {
+  margin: 2.25rem 0 0;
+  padding: 1.5rem 0;
+  background: #ddaed3;
+  border-top: 1px solid var(--border);
+}
+
+.newsletter-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-banner-title {
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.newsletter-banner-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.newsletter-banner-link:hover {
+  color: #fff;
+}
+
+.newsletter-banner-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-banner-field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.newsletter-banner-label {
+  font-size: 0.85rem;
+  color: rgba(42, 42, 54, 0.78);
+}
+
+.newsletter-banner-input {
+  width: 12rem;
+  max-width: 100%;
+  padding: 0.5rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--text);
+  outline: none;
+}
+
+.newsletter-banner-input::placeholder {
+  color: rgba(42, 42, 54, 0.58);
+}
+
+.newsletter-banner-input:focus {
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.newsletter-banner-submit {
+  border-color: rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text);
+}
+
+.newsletter-banner-submit:hover {
+  border-color: rgba(0, 0, 0, 0.28);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .home-banner {
@@ -796,8 +944,26 @@ body[data-support-group] main.container {
 }
 
 .site-footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding: 1.5rem 0;
+  background: #213c51;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.site-footer .muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer .address-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.site-footer .address-link:hover {
+  color: #fff;
+}
+
+.site-footer .placeholder-note {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer-inner {
@@ -807,19 +973,37 @@ body[data-support-group] main.container {
   align-items: flex-start;
 }
 
-.footer-tbn-logo {
-  width: 260px;
-  height: auto;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
 .footer-social {
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
   align-self: flex-start;
   display: flex;
-  gap: 1.25rem;
+  flex-wrap: wrap;
   align-items: center;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+  /* Whitespace between </a><a> becomes flex items; zero font-size collapses those gaps */
+  font-size: 0;
+}
+
+.footer-social > a {
+  font-size: 1rem;
+}
+
+.footer-email-link {
+  gap: 0.5rem;
+}
+
+.footer-email-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.footer-email-text {
+  font-size: 0.95rem;
+  color: inherit;
 }
 
 .instagram-logo-img {

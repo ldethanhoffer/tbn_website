@@ -21,7 +21,6 @@
     <main class="container">
       <section class="hero">
         <h1 class="hero-title" data-hero-title></h1>
-        <p class="hero-subtitle" data-home-hero-subtitle></p>
         <div class="hero-actions">
           <a class="button" href="#" data-home-events-cta></a>
         </div>
@@ -29,6 +28,23 @@
 
       <section class="card-grid" aria-label="Highlights" data-home-highlights></section>
     </main>
+
+    <section class="newsletter-banner" aria-label="Newsletter signup">
+      <div class="container newsletter-banner-inner">
+        <p class="newsletter-banner-title">Subscribe to our newsletter</p>
+        <form class="newsletter-banner-form" action="#" method="post">
+          <label class="newsletter-banner-field">
+            <span class="newsletter-banner-label">First name</span>
+            <input class="newsletter-banner-input" type="text" name="firstName" autocomplete="given-name" />
+          </label>
+          <label class="newsletter-banner-field">
+            <span class="newsletter-banner-label">Last name</span>
+            <input class="newsletter-banner-input" type="text" name="lastName" autocomplete="family-name" />
+          </label>
+          <button class="button newsletter-banner-submit" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
 
     <div data-layout="footer"></div>
 

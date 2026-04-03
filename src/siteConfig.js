@@ -24,15 +24,7 @@ export const siteConfig = {
   /** Home page (`index.html`) hero and highlight cards */
   home: {
     heroTitle: 'Welcome',
-    heroSubtitle: `Welcome to the Toronto Bi+ Network —a community rooted in connection, visibility, and care. 
-    If you'd like to get to know us better, visit the About section to explore who we are and the values that guide us. 
-    In People, you'll find the individuals who bring this community to life, while Events keeps you up to date on gatherings and opportunities to connect.
-    Our Support Groups, accessible through the menu, offer dedicated spaces for all genders, as well as for men and women, where you can find understanding and solidarity. 
-    During Pride, join us in celebrating under the Pride section, and if you ever wish to reach out, the Contact page is always open.
-    We're truly glad you've found your way here.`,
-    
-    
-      eventsCta: { href: 'events.html', label: 'View Events' },
+    eventsCta: { href: 'events.html', label: 'View Events' },
     highlightCards: [
       {
         title: 'Mission',

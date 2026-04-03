@@ -250,10 +250,6 @@ function initHomeFromConfig() {
     if (home.heroTitle != null) el.textContent = home.heroTitle;
   });
 
-  document.querySelectorAll('[data-home-hero-subtitle]').forEach((el) => {
-    if (home.heroSubtitle != null) el.textContent = home.heroSubtitle;
-  });
-
   document.querySelectorAll('[data-home-events-cta]').forEach((el) => {
     if (home.eventsCta?.href) el.setAttribute('href', home.eventsCta.href);
     if (home.eventsCta?.label != null) el.textContent = home.eventsCta.label;

@@ -24,7 +24,7 @@ export const siteConfig = {
   /** Home page (`index.html`) hero and highlight cards */
   home: {
     heroTitle: 'Welcome',
-    eventsCta: { href: 'events.html', label: 'View Events' },
+    eventsCta: { href: 'index.html#events', label: 'View Events' },
     highlightCards: [
       {
         title: 'Mission',
@@ -43,14 +43,14 @@ export const siteConfig = {
   },
 
   /**
-   * Support group dropdown (all pages) + per-page content (`support-groups-*.html`).
+   * Support group dropdown (single-page anchors).
    * `pages` keys must match `body[data-support-group]`.
    */
   supportGroups: {
     nav: [
-      { href: 'support-groups-general.html', label: 'All-Gender' },
-      { href: 'support-groups-mens.html', label: 'Men' },
-      { href: 'support-groups-womens.html', label: 'Women' },
+      { href: '#support-group-all-gender', label: 'All-Gender' },
+      { href: '#support-group-mens', label: 'Men' },
+      { href: '#support-group-womens', label: 'Women' },
     ],
 
     quote: {

@@ -659,10 +659,40 @@ main h1 {
   margin-bottom: 1.25rem;
 }
 
+.events-month-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .events-month-title {
-  margin: 0 0 0.35rem;
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: center;
   font-weight: 550;
   color: var(--text);
+  min-width: 10rem;
+}
+
+.events-month-nav {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.events-month-nav:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.events-month-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.92rem;
+}
+
+.events-calendar-empty {
+  margin: 0.5rem 0 0;
 }
 
 .events-calendar-grid {

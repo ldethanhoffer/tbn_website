@@ -18,15 +18,304 @@
       />
     </section>
 
-    <main class="container">
-      <section class="hero">
-        <h1 class="hero-title" data-hero-title></h1>
-        <div class="hero-actions">
-          <a class="button" href="#" data-home-events-cta></a>
+    <main>
+      <div class="container">
+        <section class="hero" id="home">
+          <h1 class="hero-title" data-hero-title></h1>
+          <div class="hero-actions">
+            <a class="button" href="#" data-home-events-cta></a>
+          </div>
+        </section>
+
+        <section class="card-grid" aria-label="Highlights" data-home-highlights></section>
+      </div>
+
+      <div class="container">
+      <section class="page-intro" id="about">
+        <h1>About</h1>
+        <p class="muted">
+          Toronto Bi+ Network (TBN) is a welcoming community for bisexual, pansexual, omnisexual, Two-Spirit, fluid,
+          unlabeled, and other non-monosexual (bi+/mspec) people, as well as anyone questioning their sexuality.
+        </p>
+        <p class="muted">
+          We offer peer support, social connection, information, and resources. Our spaces are non-judgmental and
+          supportive, so people can share feelings, experiences, and concerns openly. We celebrate many paths of identity
+          development and honour the diversity of people's lived experiences. We also do outreach, advocacy, and
+          education on bi+ and broader queer issues.
+        </p>
+        <p class="muted">
+          TBN also serves as an umbrella organization for two gender-centered groups: Bi+ Women of Toronto (BiWoT) and
+          Bi+ Men of Toronto (BiMoT).
+        </p>
+      </section>
+
+      <section class="two-col" aria-label="Gender-centered support groups">
+        <article class="card">
+          <h2>Bi+ Women of Toronto (BiWoT)</h2>
+          <p class="muted">
+            Bi+ Women of Toronto (BiWoT) is a community where bi+ women and women questioning their sexuality can share
+            perspectives and experiences. We welcome bi+ and questioning cis and trans women, as well as non-binary
+            people who are comfortable in a space centered on women's experiences.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Bi+ Men of Toronto (BiMoT)</h2>
+          <p class="muted">
+            Bi+ Men of Toronto (BiMoT) is a community where bi+ men and men questioning their sexuality can share
+            perspectives and experiences. We welcome bi+ and questioning cis and trans men, as well as non-binary
+            people who are comfortable in a space centered on men's experiences.
+          </p>
+        </article>
+      </section>
+
+      <section class="page-intro" id="team">
+        <h1>Meet the Team</h1>
+        <p class="muted">Replace these placeholders with your team members, partners, or leadership.</p>
+      </section>
+
+      <section class="card-grid" id="people-grid" aria-label="Team list">
+        <article class="card">
+          <img class="member-photo member-photo-image" src="./assets/louis.png" alt="Portrait of Louis de Thanhoffer" />
+          <h2>Louis de Thanhoffer</h2>
+          <p class="muted">Technical/Social stuff</p>
+          <p>
+            Louis likes boys and girls and everything in between. He;s from Antwerp, Belgium, the greatest city on earth
+          </p>
+        </article>
+        <article class="card">
+          <div class="member-photo member-photo-placeholder" aria-label="Photo placeholder for Jordan Lee">
+            Add photo later
+          </div>
+          <h2>Jordan Lee</h2>
+          <p class="muted">Role placeholder</p>
+          <p>Short bio placeholder.</p>
+        </article>
+        <article class="card">
+          <div class="member-photo member-photo-placeholder" aria-label="Photo placeholder for Sam Rivera">
+            Add photo later
+          </div>
+          <h2>Sam Rivera</h2>
+          <p class="muted">Role placeholder</p>
+          <p>Short bio placeholder.</p>
+        </article>
+      </section>
+
+      <section class="page-intro" id="events">
+        <h1>Events</h1>
+        <p class="muted">Keep this page updated with your upcoming activities, meetings, and public events.</p>
+      </section>
+
+      <section class="events-month" aria-label="Events calendar">
+        <div class="events-month-header">
+          <div class="events-month-toolbar">
+            <button type="button" class="button events-month-nav" id="events-month-prev" aria-label="Previous month">
+              ← Previous
+            </button>
+            <h2 class="events-month-title" id="events-month-title"></h2>
+            <button type="button" class="button events-month-nav" id="events-month-next" aria-label="Next month">
+              Next →
+            </button>
+          </div>
+          <p class="muted events-month-hint" id="events-month-hint"></p>
+        </div>
+        <div class="events-calendar-grid" id="events-calendar-grid" aria-label="Calendar days"></div>
+      </section>
+
+      <section class="page-intro" id="support-groups">
+        <h1>Support Groups</h1>
+        <p class="muted">Explore our support groups below.</p>
+      </section>
+
+      <section data-support-group-section="general">
+        <div class="support-groups-page-with-banner">
+          <aside class="support-group-quote-banner" aria-label="Quote">
+            <blockquote data-sg="quote-block">
+              <p data-sg="quote-text"></p>
+              <footer data-sg="quote-attribution"></footer>
+            </blockquote>
+          </aside>
+          <div class="support-groups-intro-row">
+            <section class="page-intro">
+              <div class="support-group-hover-preview-inner muted">
+                <h2 class="support-group-preview-title" data-sg="intro-heading"></h2>
+                <p data-sg="intro-paragraph"></p>
+              </div>
+            </section>
+            <div class="support-groups-previews-column">
+              <div class="support-group-hover-preview" data-sg="meeting-root">
+                <div class="support-group-hover-preview-inner muted">
+                  <h3 class="support-group-preview-title" data-sg="meeting-heading"></h3>
+                  <div data-sg="meeting-paragraphs"></div>
+                </div>
+              </div>
+            </div>
+            <aside
+              class="support-groups-what-to-expect-column"
+              data-sg="what-to-expect-column"
+              aria-labelledby="what-to-expect-heading-general"
+            >
+              <div class="support-group-hover-preview-inner muted">
+                <h3 class="support-group-preview-title" data-sg="what-to-expect-heading"></h3>
+                <p data-sg="what-to-expect-paragraph"></p>
+              </div>
+              <div class="support-group-detail-card-wrap">
+                <section
+                  class="card-grid card-grid--align-start card-grid--single support-group-detail-card-grid"
+                  aria-label="Support group details"
+                >
+                  <article class="card support-group-anchor" data-sg="card-article">
+                    <h3 data-sg="card-heading"></h3>
+                    <p class="muted" data-sg="card-schedule"></p>
+                    <p>
+                      <a
+                        class="address-link"
+                        data-sg="card-address-link"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      ></a>
+                    </p>
+                  </article>
+                </section>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
-      <section class="card-grid" aria-label="Highlights" data-home-highlights></section>
+      <section data-support-group-section="womens">
+        <div class="support-groups-page-with-banner">
+          <aside class="support-group-quote-banner" aria-label="Quote">
+            <blockquote data-sg="quote-block">
+              <p data-sg="quote-text"></p>
+              <footer data-sg="quote-attribution"></footer>
+            </blockquote>
+          </aside>
+          <div class="support-groups-intro-row">
+            <section class="page-intro">
+              <div class="support-group-hover-preview-inner muted">
+                <h2 class="support-group-preview-title" data-sg="intro-heading"></h2>
+                <p data-sg="intro-paragraph"></p>
+              </div>
+            </section>
+            <div class="support-groups-previews-column">
+              <div class="support-group-hover-preview" data-sg="meeting-root">
+                <div class="support-group-hover-preview-inner muted">
+                  <h3 class="support-group-preview-title" data-sg="meeting-heading"></h3>
+                  <div data-sg="meeting-paragraphs"></div>
+                </div>
+              </div>
+            </div>
+            <aside
+              class="support-groups-what-to-expect-column"
+              data-sg="what-to-expect-column"
+              aria-labelledby="what-to-expect-heading-womens"
+            >
+              <div class="support-group-hover-preview-inner muted">
+                <h3 class="support-group-preview-title" data-sg="what-to-expect-heading"></h3>
+                <p data-sg="what-to-expect-paragraph"></p>
+              </div>
+              <div class="support-group-detail-card-wrap">
+                <section
+                  class="card-grid card-grid--align-start card-grid--single support-group-detail-card-grid"
+                  aria-label="Support group details"
+                >
+                  <article class="card support-group-anchor" data-sg="card-article">
+                    <h3 data-sg="card-heading"></h3>
+                    <p class="muted" data-sg="card-schedule"></p>
+                    <p>
+                      <a
+                        class="address-link"
+                        data-sg="card-address-link"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      ></a>
+                    </p>
+                  </article>
+                </section>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section data-support-group-section="mens">
+        <div class="support-groups-page-with-banner">
+          <aside class="support-group-quote-banner" aria-label="Quote">
+            <blockquote data-sg="quote-block">
+              <p data-sg="quote-text"></p>
+              <footer data-sg="quote-attribution"></footer>
+            </blockquote>
+          </aside>
+          <div class="support-groups-intro-row">
+            <section class="page-intro">
+              <div class="support-group-hover-preview-inner muted">
+                <h2 class="support-group-preview-title" data-sg="intro-heading"></h2>
+                <p data-sg="intro-paragraph"></p>
+              </div>
+            </section>
+            <div class="support-groups-previews-column">
+              <div class="support-group-hover-preview" data-sg="meeting-root">
+                <div class="support-group-hover-preview-inner muted">
+                  <h3 class="support-group-preview-title" data-sg="meeting-heading"></h3>
+                  <div data-sg="meeting-paragraphs"></div>
+                </div>
+              </div>
+            </div>
+            <aside
+              class="support-groups-what-to-expect-column"
+              data-sg="what-to-expect-column"
+              aria-labelledby="what-to-expect-heading-mens"
+            >
+              <div class="support-group-hover-preview-inner muted">
+                <h3 class="support-group-preview-title" data-sg="what-to-expect-heading"></h3>
+                <p data-sg="what-to-expect-paragraph"></p>
+              </div>
+              <div class="support-group-detail-card-wrap">
+                <section
+                  class="card-grid card-grid--align-start card-grid--single support-group-detail-card-grid"
+                  aria-label="Support group details"
+                >
+                  <article class="card support-group-anchor" data-sg="card-article">
+                    <h3 data-sg="card-heading"></h3>
+                    <p class="muted" data-sg="card-schedule"></p>
+                    <p>
+                      <a
+                        class="address-link"
+                        data-sg="card-address-link"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      ></a>
+                    </p>
+                  </article>
+                </section>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-intro" id="pride">
+        <h1>Pride</h1>
+        <p class="muted">
+          Use this page for Toronto Bi+ Network’s Pride season updates: parade contingents, booth information,
+          volunteer sign-up, and community partnerships. Replace this placeholder copy with your own announcements.
+        </p>
+      </section>
+
+      <section class="two-col">
+        <article class="card">
+          <h2>Parade &amp; festival</h2>
+          <p>Placeholder for march route, meeting point, wristbands or registration, and what to expect on the day.</p>
+        </article>
+        <article class="card">
+          <h2>Get involved</h2>
+          <p>Placeholder for volunteering, donations, and how allies can support bi+ visibility during Pride.</p>
+        </article>
+      </section>
+      </div>
     </main>
 
     <section class="newsletter-banner" aria-label="Newsletter signup">
@@ -47,6 +336,211 @@
     </section>
 
     <div data-layout="footer"></div>
+
+    <script>
+      (() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const MONTH_NAMES = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        const MONTH_LONG = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ];
+
+        const pad2 = (n) => String(n).padStart(2, '0');
+        const isoKey = (y, mIndex, d) => `${y}-${pad2(mIndex + 1)}-${pad2(d)}`;
+
+        const supportVenue = {
+          label: '519 Church Street, Toronto, ON',
+          href: 'https://maps.google.com/?q=519+Church+Street,+Toronto,+ON',
+        };
+
+        const brunchVenue = {
+          label: 'The Bishop & Belcher',
+          href: 'https://maps.google.com/?q=The+Bishop+and+Belcher,+175+Bloor+St+E,+Toronto,+ON',
+        };
+
+        const nthWeekdayInMonth = ({ year, monthIndex, weekday, nth }) => {
+          const firstOfMonth = new Date(year, monthIndex, 1);
+          const firstOffset = (weekday - firstOfMonth.getDay() + 7) % 7;
+          const day = 1 + firstOffset + (nth - 1) * 7;
+          const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+          return day <= daysInMonth ? day : null;
+        };
+
+        const getEventsForDate = (date) => {
+          const year = date.getFullYear();
+          const monthIndex = date.getMonth();
+          const dayOfMonth = date.getDate();
+
+          const events = [];
+
+          if (monthIndex === 4 && dayOfMonth === 3) events.push({ title: 'TBN @ Pride', meta: '10:00 AM' });
+          if (monthIndex === 4 && dayOfMonth === 22) events.push({ title: 'Social Mixers', meta: '9:00 AM' });
+
+          const secondSunday = nthWeekdayInMonth({ year, monthIndex, weekday: 0, nth: 2 });
+          if (secondSunday && dayOfMonth === secondSunday) {
+            events.push({ title: 'Brunch Club', meta: '12pm-2pm', address: brunchVenue });
+          }
+
+          const thirdThursday = nthWeekdayInMonth({ year, monthIndex, weekday: 4, nth: 3 });
+          if (thirdThursday && dayOfMonth === thirdThursday) {
+            events.push({ title: 'General Support Group', meta: '7:30 - 8:30 PM', address: supportVenue });
+          }
+
+          const firstThursday = nthWeekdayInMonth({ year, monthIndex, weekday: 4, nth: 1 });
+          if (firstThursday && dayOfMonth === firstThursday) {
+            events.push({ title: "Women's Support Group", meta: '8:00 - 9:30 PM', address: supportVenue });
+          }
+
+          const fourthTuesday = nthWeekdayInMonth({ year, monthIndex, weekday: 2, nth: 4 });
+          if (fourthTuesday && dayOfMonth === fourthTuesday) {
+            events.push({ title: "Men's Support Group", meta: '7:00 - 8:30 PM', address: supportVenue });
+          }
+
+          return events;
+        };
+
+        const gridEl = document.getElementById('events-calendar-grid');
+        const titleEl = document.getElementById('events-month-title');
+        const hintEl = document.getElementById('events-month-hint');
+        const prevBtn = document.getElementById('events-month-prev');
+        const nextBtn = document.getElementById('events-month-next');
+        if (!gridEl || !titleEl || !hintEl || !prevBtn || !nextBtn) return;
+
+        let viewYear = today.getFullYear();
+        let viewMonth = today.getMonth();
+
+        const isSameMonthAsToday = () => viewYear === today.getFullYear() && viewMonth === today.getMonth();
+
+        const monthKey = (y, m) => y * 12 + m;
+
+        const stepMonth = (delta) => {
+          const d = new Date(viewYear, viewMonth + delta, 1);
+          viewYear = d.getFullYear();
+          viewMonth = d.getMonth();
+        };
+
+        const collectEventsForViewMonth = () => {
+          const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+          const out = [];
+          for (let day = 1; day <= daysInMonth; day += 1) {
+            const date = new Date(viewYear, viewMonth, day);
+            getEventsForDate(date).forEach((e) => out.push({ date: new Date(date), ...e }));
+          }
+          return out;
+        };
+
+        const renderTiles = (events) => {
+          gridEl.replaceChildren();
+
+          events.forEach((evt) => {
+            const year = evt.date.getFullYear();
+            const monthIndex = evt.date.getMonth();
+            const dayOfMonth = evt.date.getDate();
+            const key = isoKey(year, monthIndex, dayOfMonth);
+
+            const tile = document.createElement('article');
+            tile.className = 'calendar-day-tile';
+            tile.setAttribute('data-day', String(dayOfMonth));
+            tile.setAttribute('data-date', key);
+
+            const badge = document.createElement('div');
+            badge.className = 'calendar-day-badge';
+            badge.setAttribute('aria-hidden', 'true');
+
+            const badgeDay = document.createElement('span');
+            badgeDay.className = 'calendar-day-number';
+            badgeDay.textContent = pad2(dayOfMonth);
+
+            const badgeMonth = document.createElement('span');
+            badgeMonth.className = 'calendar-day-month';
+            badgeMonth.textContent = MONTH_NAMES[monthIndex];
+
+            badge.appendChild(badgeDay);
+            badge.appendChild(badgeMonth);
+
+            const body = document.createElement('div');
+            body.className = 'calendar-day-body';
+
+            const h3 = document.createElement('h3');
+            h3.className = 'calendar-day-title';
+            h3.textContent = evt.title;
+
+            const meta = document.createElement('p');
+            meta.className = 'calendar-day-meta muted';
+            meta.textContent = evt.meta;
+
+            body.appendChild(h3);
+            body.appendChild(meta);
+
+            if (evt.address?.href && evt.address?.label) {
+              const addr = document.createElement('p');
+              const a = document.createElement('a');
+              a.className = 'address-link';
+              a.href = evt.address.href;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              a.innerHTML = '<span class="address-icon" aria-hidden="true">📍</span>' + evt.address.label;
+              addr.appendChild(a);
+              body.appendChild(addr);
+            }
+
+            tile.appendChild(badge);
+            tile.appendChild(body);
+            gridEl.appendChild(tile);
+          });
+        };
+
+        const render = () => {
+          titleEl.textContent = `${MONTH_LONG[viewMonth]} ${viewYear}`;
+
+          const events = collectEventsForViewMonth();
+
+          if (events.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'muted events-calendar-empty';
+            empty.textContent = 'No scheduled events in this month.';
+            gridEl.replaceChildren();
+            gridEl.appendChild(empty);
+          } else {
+            renderTiles(events);
+          }
+
+          hintEl.textContent = isSameMonthAsToday()
+            ? 'Showing this month. Use Next to see the following month.'
+            : 'Showing a single month at a time. Use Previous to return to earlier months.';
+
+          const todayKey = monthKey(today.getFullYear(), today.getMonth());
+          prevBtn.disabled = monthKey(viewYear, viewMonth) <= todayKey;
+          nextBtn.disabled = false;
+        };
+
+        prevBtn.addEventListener('click', () => {
+          if (prevBtn.disabled) return;
+          stepMonth(-1);
+          render();
+        });
+
+        nextBtn.addEventListener('click', () => {
+          stepMonth(1);
+          render();
+        });
+
+        render();
+      })();
+    </script>
 
     <script type="module" src="./src/site.js"></script>
   </body>

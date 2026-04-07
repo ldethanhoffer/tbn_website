@@ -41,6 +41,12 @@ function markActiveNav() {
     const pathPart = hashIdx >= 0 ? hrefPath.slice(0, hashIdx) : hrefPath;
     const hashPart = hashIdx >= 0 ? hrefPath.slice(hashIdx) : '';
 
+    // Hash-only links (single-page navigation).
+    if (!pathPart && hashPart) {
+      if (window.location.hash === hashPart) a.classList.add('active');
+      return;
+    }
+
     if (current === '' && (pathPart === 'index.html' || pathPart === '')) {
       a.classList.add('active');
       return;
@@ -54,7 +60,8 @@ function markActiveNav() {
   });
 
   const supportGroupPagePaths = getSupportGroupPagePaths();
-  const onSupportGroupPage = supportGroupPagePaths.some((p) => current.endsWith(p));
+  const onSupportGroupPage =
+    supportGroupPagePaths.some((p) => current.endsWith(p)) || supportGroupPagePaths.includes(window.location.hash || '');
   document.querySelectorAll('[data-nav-dropdown="support-groups"] .nav-dropdown-toggle').forEach((btn) => {
     if (onSupportGroupPage) {
       btn.classList.add('active');
@@ -145,52 +152,43 @@ function initSupportGroupsNav() {
   });
 }
 
-/** Fill support group subpages (`body[data-support-group]`) from config */
-function initSupportGroupPageFromConfig() {
-  const key = document.body?.dataset?.supportGroup;
+function fillSupportGroupFromConfig({ root, key, setDocumentTitle }) {
   const sg = siteConfig.supportGroups;
   const page = key && sg?.pages?.[key];
-  if (!page || !sg) return;
+  if (!page || !sg || !root) return;
 
   const brand = siteConfig.brandName || 'TBN';
 
-  const titleEl = document.querySelector('title[data-brand-title]');
-  if (titleEl) {
-    titleEl.textContent = page.pageTitle;
+  if (setDocumentTitle) {
+    const titleEl = document.querySelector('title[data-brand-title]');
+    if (titleEl) titleEl.textContent = page.pageTitle;
   }
 
   const citeName = sg.quote?.citeName || '';
-  const qBlock = document.querySelector('[data-sg="quote-block"]');
-  if (qBlock && citeName) {
-    qBlock.setAttribute('cite', citeName);
-  }
-  const quoteTextEl = document.querySelector('[data-sg="quote-text"]');
-  if (quoteTextEl && sg.quote?.text) {
-    quoteTextEl.textContent = `\u201c${sg.quote.text}\u201d`;
-  }
-  const quoteAttrEl = document.querySelector('[data-sg="quote-attribution"]');
-  if (quoteAttrEl && citeName) {
-    quoteAttrEl.textContent = `\u2014 ${citeName}`;
-  }
+  const qBlock = root.querySelector('[data-sg="quote-block"]');
+  if (qBlock && citeName) qBlock.setAttribute('cite', citeName);
 
-  const introHeading = document.querySelector('[data-sg="intro-heading"]');
+  const quoteTextEl = root.querySelector('[data-sg="quote-text"]');
+  if (quoteTextEl && sg.quote?.text) quoteTextEl.textContent = `\u201c${sg.quote.text}\u201d`;
+
+  const quoteAttrEl = root.querySelector('[data-sg="quote-attribution"]');
+  if (quoteAttrEl && citeName) quoteAttrEl.textContent = `\u2014 ${citeName}`;
+
+  const introHeading = root.querySelector('[data-sg="intro-heading"]');
   if (introHeading && sg.sharedIntro?.headingTemplate) {
     introHeading.textContent = sg.sharedIntro.headingTemplate.replace(/\{brand\}/g, brand);
   }
-  const introP = document.querySelector('[data-sg="intro-paragraph"]');
-  if (introP && sg.sharedIntro?.paragraph) {
-    introP.textContent = sg.sharedIntro.paragraph;
-  }
 
-  const meetingRoot = document.querySelector('[data-sg="meeting-root"]');
-  if (meetingRoot) {
-    meetingRoot.id = page.previewPanelId;
-  }
-  const meetingTitle = document.querySelector('[data-sg="meeting-heading"]');
-  if (meetingTitle) {
-    meetingTitle.textContent = page.meeting.title;
-  }
-  const meetingHost = document.querySelector('[data-sg="meeting-paragraphs"]');
+  const introP = root.querySelector('[data-sg="intro-paragraph"]');
+  if (introP && sg.sharedIntro?.paragraph) introP.textContent = sg.sharedIntro.paragraph;
+
+  const meetingRoot = root.querySelector('[data-sg="meeting-root"]');
+  if (meetingRoot) meetingRoot.id = page.previewPanelId;
+
+  const meetingTitle = root.querySelector('[data-sg="meeting-heading"]');
+  if (meetingTitle) meetingTitle.textContent = page.meeting.title;
+
+  const meetingHost = root.querySelector('[data-sg="meeting-paragraphs"]');
   if (meetingHost && Array.isArray(page.meeting.paragraphs)) {
     meetingHost.replaceChildren();
     page.meeting.paragraphs.forEach((text) => {
@@ -200,33 +198,27 @@ function initSupportGroupPageFromConfig() {
     });
   }
 
-  const wteColumn = document.querySelector('[data-sg="what-to-expect-column"]');
-  const wteHeading = document.querySelector('[data-sg="what-to-expect-heading"]');
+  const wteColumn = root.querySelector('[data-sg="what-to-expect-column"]');
+  const wteHeading = root.querySelector('[data-sg="what-to-expect-heading"]');
   if (wteHeading) {
     wteHeading.id = page.whatToExpectHeadingId;
     wteHeading.textContent = sg.whatToExpectHeading || 'What to expect';
   }
-  if (wteColumn) {
-    wteColumn.setAttribute('aria-labelledby', page.whatToExpectHeadingId);
-  }
-  const wteP = document.querySelector('[data-sg="what-to-expect-paragraph"]');
-  if (wteP) {
-    wteP.textContent = page.whatToExpect;
-  }
+  if (wteColumn) wteColumn.setAttribute('aria-labelledby', page.whatToExpectHeadingId);
 
-  const cardArticle = document.querySelector('[data-sg="card-article"]');
-  if (cardArticle) {
-    cardArticle.id = page.card.anchorId;
-  }
-  const cardH = document.querySelector('[data-sg="card-heading"]');
-  if (cardH) {
-    cardH.textContent = page.card.heading;
-  }
-  const cardSched = document.querySelector('[data-sg="card-schedule"]');
-  if (cardSched) {
-    cardSched.textContent = page.card.scheduleLine;
-  }
-  const cardLink = document.querySelector('[data-sg="card-address-link"]');
+  const wteP = root.querySelector('[data-sg="what-to-expect-paragraph"]');
+  if (wteP) wteP.textContent = page.whatToExpect;
+
+  const cardArticle = root.querySelector('[data-sg="card-article"]');
+  if (cardArticle) cardArticle.id = page.card.anchorId;
+
+  const cardH = root.querySelector('[data-sg="card-heading"]');
+  if (cardH) cardH.textContent = page.card.heading;
+
+  const cardSched = root.querySelector('[data-sg="card-schedule"]');
+  if (cardSched) cardSched.textContent = page.card.scheduleLine;
+
+  const cardLink = root.querySelector('[data-sg="card-address-link"]');
   if (cardLink && sg.venue) {
     cardLink.href = sg.venue.mapsUrl;
     cardLink.target = '_blank';
@@ -239,6 +231,21 @@ function initSupportGroupPageFromConfig() {
     cardLink.appendChild(icon);
     cardLink.appendChild(document.createTextNode(` ${sg.venue.line}`));
   }
+}
+
+/** Fill support group subpages (`body[data-support-group]`) from config */
+function initSupportGroupPageFromConfig() {
+  const key = document.body?.dataset?.supportGroup;
+  if (!key) return;
+  fillSupportGroupFromConfig({ root: document, key, setDocumentTitle: true });
+}
+
+/** Fill inline support group sections (`[data-support-group-section]`) from config */
+function initSupportGroupSectionsFromConfig() {
+  document.querySelectorAll('[data-support-group-section]').forEach((section) => {
+    const key = section.getAttribute('data-support-group-section') || '';
+    fillSupportGroupFromConfig({ root: section, key, setDocumentTitle: false });
+  });
 }
 
 /** Fill `index.html` hero, CTA, and highlight cards from `siteConfig.home` */
@@ -328,6 +335,7 @@ async function init() {
 
   initSupportGroupsNav();
   initSupportGroupPageFromConfig();
+  initSupportGroupSectionsFromConfig();
   initHomeFromConfig();
   initBranding();
   initFooterYear();
